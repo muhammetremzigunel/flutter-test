@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../constant/spacing_constant.dart';
+import '../../constant/text_constant.dart';
 
 class OnboardingContent extends StatelessWidget {
   final String title;
@@ -22,20 +24,18 @@ class OnboardingContent extends StatelessWidget {
           size: 100,
           color: Theme.of(context).colorScheme.primary,
         ),
-        const SizedBox(height: 40),
+        SizedBox(height: SpacingConstants.xLarge),
         Text(
           title,
-          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+          style: TextConstants.headlineBold,
         ),
-        const SizedBox(height: 20),
+        SizedBox(height: SpacingConstants.large),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40),
+          padding: EdgeInsets.symmetric(horizontal: SpacingConstants.horizontalPadding),
           child: Text(
             description,
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodyLarge,
+            style: TextConstants.bodyLarge,
           ),
         ),
       ],
@@ -58,14 +58,17 @@ class OnboardingActionButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+        padding: EdgeInsets.symmetric(
+          horizontal: SpacingConstants.horizontalPadding,
+          vertical: 15,
+        ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30),
         ),
       ),
       child: Text(
         label,
-        style: const TextStyle(fontSize: 18),
+        style: TextConstants.buttonLabel,
       ),
     );
   }

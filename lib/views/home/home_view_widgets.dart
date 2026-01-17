@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import '../../constant/string_constant.dart';
 
 class HomeAppBarTitle extends StatelessWidget {
   const HomeAppBarTitle({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Text('Home View');
+    return const Text(StringConstants.homeTitle);
   }
 }
 
@@ -14,8 +15,8 @@ class HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Home View'),
+    return Center(
+      child: const Text(StringConstants.homeTitle),
     );
   }
 }

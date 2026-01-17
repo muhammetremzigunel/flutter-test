@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '../../constant/color_constant.dart';
+import '../../constant/spacing_constant.dart';
+import '../../constant/string_constant.dart';
 import '../home/home_view.dart';
 import 'onboarding_view_widgets.dart';
 
@@ -15,18 +18,18 @@ class _OnboardingViewState extends State<OnboardingView> {
 
   final List<Map<String, dynamic>> _onboardingData = [
     {
-      'title': 'Welcome to Flutter Blog',
-      'description': 'The best place to read and write about Flutter development.',
+      'title': StringConstants.onboarding1Title,
+      'description': StringConstants.onboarding1Desc,
       'icon': Icons.rocket_launch,
     },
     {
-      'title': 'Learn and Grow',
-      'description': 'Stay updated with the latest trends and tutorials in the Flutter ecosystem.',
+      'title': StringConstants.onboarding2Title,
+      'description': StringConstants.onboarding2Desc,
       'icon': Icons.school,
     },
     {
-      'title': 'Connect with Others',
-      'description': 'Join a community of thousands of developers around the world.',
+      'title': StringConstants.onboarding3Title,
+      'description': StringConstants.onboarding3Desc,
       'icon': Icons.people,
     },
   ];
@@ -73,7 +76,7 @@ class _OnboardingViewState extends State<OnboardingView> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(40.0),
+              padding: EdgeInsets.all(SpacingConstants.horizontalPadding),
               child: Column(
                 children: [
                   Row(
@@ -81,23 +84,23 @@ class _OnboardingViewState extends State<OnboardingView> {
                     children: List.generate(
                       _onboardingData.length,
                       (index) => Container(
-                        margin: const EdgeInsets.all(4),
+                        margin: EdgeInsets.all(SpacingConstants.small / 2),
                         width: 10,
                         height: 10,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: _currentPage == index
-                              ? Theme.of(context).colorScheme.primary
-                              : Theme.of(context).colorScheme.primary.withOpacity(0.2),
+                              ? ColorConstants.indicatorActive
+                              : ColorConstants.indicatorInactive,
                         ),
                       ),
                     ),
                   ),
-                  const SizedBox(height: 40),
+                  SizedBox(height: SpacingConstants.xLarge),
                   OnboardingActionButton(
                     label: _currentPage == _onboardingData.length - 1
-                        ? 'Get Started'
-                        : 'Next',
+                        ? StringConstants.getStarted
+                        : StringConstants.next,
                     onPressed: _onNext,
                   ),
                 ],

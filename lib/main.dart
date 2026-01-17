@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'constant/color_constant.dart';
+import 'constant/string_constant.dart';
 import 'views/splash/splash_view.dart';
 
 void main() {
@@ -11,9 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Blog',
+      title: StringConstants.appTitle,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: ColorConstants.primary),
         useMaterial3: true,
       ),
       home: const SplashView(),

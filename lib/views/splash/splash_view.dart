@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import '../../constant/spacing_constant.dart';
 import '../onboarding/onboarding_view.dart';
 import 'splash_view_widgets.dart';
 
@@ -29,14 +30,14 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SplashLogo(),
-            SizedBox(height: 20),
-            SplashLoader(showLoader: true),
+            const SplashLogo(),
+            SizedBox(height: SpacingConstants.large),
+            const SplashLoader(showLoader: true),
           ],
         ),
       ),

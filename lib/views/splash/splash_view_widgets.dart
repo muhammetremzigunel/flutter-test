@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
+import '../../constant/spacing_constant.dart';
+import '../../constant/string_constant.dart';
+import '../../constant/text_constant.dart';
 
 class SplashLogo extends StatelessWidget {
   const SplashLogo({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        FlutterLogo(size: 100),
-        SizedBox(height: 20),
-        Text(
-          'Splash View',
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        const FlutterLogo(size: 100),
+        SizedBox(height: SpacingConstants.large),
+        const Text(
+          StringConstants.splashText,
+          style: TextConstants.headlineBold,
         ),
       ],
     );
