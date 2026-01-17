@@ -5,7 +5,7 @@ class HomeAppBarTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text('Home Screen');
+    return const Text('Home View');
   }
 }
 
@@ -15,7 +15,7 @@ class HomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('Home Screen'),
+      child: Text('Home View'),
     );
   }
 }
