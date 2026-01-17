@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import '../home/home_view.dart';
+import '../onboarding/onboarding_view.dart';
 import 'splash_view_widgets.dart';
 
 class SplashView extends StatefulWidget {
@@ -14,14 +14,14 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
-    _navigateToHome();
+    _navigateToOnboarding();
   }
 
-  void _navigateToHome() {
+  void _navigateToOnboarding() {
     Timer(const Duration(seconds: 2), () {
       if (mounted) {
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (_) => const HomeView()),
+          MaterialPageRoute(builder: (_) => const OnboardingView()),
         );
       }
     });
