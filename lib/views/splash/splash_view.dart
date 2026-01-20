@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../constant/spacing_constant.dart';
+import '../home/home_view.dart';
 import '../onboarding/onboarding_view.dart';
 import 'splash_view_widgets.dart';
 
@@ -15,15 +17,24 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
-    _navigateToOnboarding();
+    _handleNavigation();
   }
 
-  void _navigateToOnboarding() {
+  Future<void> _handleNavigation() async {
+    final prefs = await SharedPreferences.getInstance();
+    final bool isOnboardingCompleted = prefs.getBool('is_onboarding_completed') ?? false;
+
     Timer(const Duration(seconds: 2), () {
       if (mounted) {
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (_) => const OnboardingView()),
-        );
+        if (isOnboardingCompleted) {
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (_) => const HomeView()),
+          );
+        } else {
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (_) => const OnboardingView()),
+          );
+        }
       }
     });
   }

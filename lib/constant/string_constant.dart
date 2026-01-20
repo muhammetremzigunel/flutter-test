@@ -6,6 +6,7 @@ class StringConstants {
   
   // Onboarding
   static const String next = 'Next';
+  static const String skip = 'Skip';
   static const String getStarted = 'Get Started';
   
   static const String onboarding1Title = 'Welcome to Flutter Blog';

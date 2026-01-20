@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../constant/color_constant.dart';
 import '../../constant/spacing_constant.dart';
 import '../../constant/string_constant.dart';
@@ -41,6 +42,14 @@ class _OnboardingViewState extends State<OnboardingView> {
         curve: Curves.easeInOut,
       );
     } else {
+      _completeOnboarding();
+    }
+  }
+
+  Future<void> _completeOnboarding() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('is_onboarding_completed', true);
+    if (mounted) {
       _navigateToHome();
     }
   }
@@ -54,6 +63,18 @@ class _OnboardingViewState extends State<OnboardingView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        actions: [
+          if (_currentPage < _onboardingData.length - 1)
+            TextButton(
+              onPressed: _completeOnboarding,
+              child: const Text(StringConstants.skip),
+            ),
+        ],
+      ),
+      extendBodyBehindAppBar: true,
       body: SafeArea(
         child: Column(
           children: [
